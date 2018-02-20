@@ -3,8 +3,8 @@ package controllers;
 import play.mvc.*;
 
 
-import views.html.index;
-import views.html.Home.*;
+//import views.html.index;
+//import views.html.Home.*;
 
 /**
  * This controller contains an action to handle HTTP requests
@@ -21,13 +21,16 @@ public class HomeController extends Controller {
     public Result index() {
 
 
-        return ok("Hello i am coming sri lanka");
+        return ok("Hello i am coming sri lanka abc");
     }
     public Result about(){
         return ok("sri lanka won the match");
     }
-    public Result welcome(String name){
-        return ok(welcome.render(name));
+    public Result check(){
+        return ok("I am checking");
     }
+//    public Result welcome(String name){
+//        return ok(welcome().r);
+//    }
 
 }
