@@ -11,9 +11,19 @@ GET     /message                    controllers.AsyncController.message
 
 GET  /about                        controllers.HomeController.about
 
-#GET /welcome/:name                            controllers.HomeController.welcome(name:String)
+GET /janith/:name                   controllers.HomeController.welcome(name:String)
 
 GET /check                          controllers.HomeController.check
+GET /book                           controllers.Bookcontroller.index()
+GET /book/create                          controllers.Bookcontroller.create()
+GET /book/save                            controllers.Bookcontroller.save()
+GET /book/edit/:id                  controllers.Bookcontroller.edit(id: Integer )
+POST /book/edit                     controllers.Bookcontroller.update()
+POST /book/create                   controllers.Bookcontroller.save()
+GET  /book/delete/:id                    controllers.Bookcontroller.destroy(id: Integer)
+
+
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

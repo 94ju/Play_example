@@ -2,6 +2,9 @@ package controllers;
 
 import play.mvc.*;
 
+import views.html.Home.Welcome;
+//import views.html.welcome;
+
 
 //import views.html.index;
 //import views.html.Home.*;
@@ -29,8 +32,8 @@ public class HomeController extends Controller {
     public Result check(){
         return ok("I am checking");
     }
-//    public Result welcome(String name){
-//        return ok(welcome().r);
-//    }
+    public Result welcome(String name){
+        return ok(Welcome.render(name));
+    }
 
 }
