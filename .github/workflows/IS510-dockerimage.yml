@@ -4,7 +4,7 @@ on:
   push:
     branches: [ dev ]
     paths: 
-      - 'app/**'
+      - 'play_check/app/**'
   pull_request:
     branches: [ dev ]
     paths: 
