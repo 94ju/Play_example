@@ -4,7 +4,7 @@ on:
   push:
     branches: [ dev ]
     paths: 
-      - 'wso2is-image/**'
+      - 'app/**'
   pull_request:
     branches: [ dev ]
     paths: 
