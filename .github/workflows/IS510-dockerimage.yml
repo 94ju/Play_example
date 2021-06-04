@@ -18,6 +18,7 @@ jobs:
         run: |-
            export rv="\"$GITHUB_SHA\""
            pwd
+           ls
           #  export ev=$(cat app/test1 | grep imageTag | awk '{print $2}')
           #  find app/ -name test-1 -type f -exec sed  -i 's&'$ev'&'$rv'&' {} \;
           #  cat app/test1
