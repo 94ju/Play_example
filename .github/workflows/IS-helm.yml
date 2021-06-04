@@ -1,0 +1,25 @@
+name: Helm Upgrade
+
+on:
+  push:
+    branches: [ dev ]
+    paths: 
+      - 'wso2-helmcharts/wso2is/values.yaml'
+  pull_request:
+    branches: [ dev ]
+    paths: 
+      - 'wso2is-image/**'
+    
+  
+
+jobs:
+  helmupdate:
+    name: Helm Upgrade
+    runs-on: [self-hosted , Linux , X64 , DEV]
+    steps:
+      - name: Checkout to repo
+        uses: actions/checkout@v2
+
+      - name: Helm Upgrade
+        run: |-
+         cat wso2-helmcharts/wso2is/values.yaml

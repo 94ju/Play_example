@@ -1,0 +1,59 @@
+name: Build docker image for IS510 and push to GCR
+
+on:
+  push:
+    branches: [ dev ]
+    paths: 
+      - 'wso2is-image/**'
+  pull_request:
+    branches: [ dev ]
+    paths: 
+      - 'wso2is-image/**'
+    
+  
+
+jobs:
+  build:
+    name: Build docker image
+    runs-on: ubuntu-latest    
+    steps:
+      - name: Checkout to repo
+        uses: actions/checkout@v2
+
+
+    # Replace image tag in is values.yaml
+      - name: Update WSO2IS values.yaml
+        shell: bash
+        run: |-
+           export rv="\"$GITHUB_SHA\""
+           export ev=$(cat app/test1 | grep imageTag | awk '{print $2}')
+           find app/ -name test-1 -type f -exec sed  -i 's&'$ev'&'$rv'&' {} \;
+           cat app/test1
+           git status
+
+    # Commit changes to repo       
+      - name: Commit changes
+        run: |-
+           git config --global user.name '94ju'
+           git config --global user.email 'janithherath94@gmail.com'
+           git commit -am "Update IS values.yaml file"
+           git push
+  # helmupdate:
+  #   name: Helm Upgrade
+  #   needs: [ build ]
+  #   runs-on: [self-hosted , Linux , X64 , DEV]
+  #   steps:
+  #     - name: Checkout to repo
+  #       uses: actions/checkout@v2
+  #       with:
+  #        fetch-depth: 3
+  #     - name: Checkout to repo
+  #       uses: actions/checkout@v2
+  #       with:
+  #        fetch-depth: 3
+
+  #     - name: Helm Upgrade
+  #       run: |-
+  #           cat wso2-helmcharts/wso2is/values.yaml
+ 
+
