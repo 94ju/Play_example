@@ -3,12 +3,8 @@ name: Build docker image for IS510 and push to GCR
 on:
   push:
     branches: [ dev ]
-    paths: 
-      - 'play_check/app/**'
-  pull_request:
-    branches: [ dev ]
-    paths: 
-      - 'wso2is-image/**'
+
+
     
   
 
